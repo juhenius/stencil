@@ -8,6 +8,16 @@ A browser-based web application that generates 3D-printable STL files for stenci
 
 > **⚠️ Note:** You'll need to provide your own OpenAI API key to use the demo. The application runs entirely in your browser and does not store or transmit your API key.
 
+<p align="center">
+  <img src="docs/app.png" alt="App UI screenshot" width="600" />
+</p>
+<p align="center"><em>Stencil generator app UI</em></p>
+
+<p align="center">
+  <img src="docs/slicer.png" alt="STL in slicer preview" width="600" />
+</p>
+<p align="center"><em>Exported stencil plate loaded in a 3D slicer</em></p>
+
 ## 🚀 Getting Started
 
 ### Prerequisites
