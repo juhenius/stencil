@@ -1,0 +1,71 @@
+---
+description: 
+globs: *.tsx,*.ts
+alwaysApply: false
+---
+## Cursor Rule: React Frontend Development (TypeScript + Tailwind)
+
+### Project Stack
+
+* React (Functional components only)
+* TypeScript
+* Tailwind CSS for styling
+* No testing required
+* ESLint for linting (use standard or popular community config)
+* React context for state management
+
+---
+
+### Component Structure
+
+Components **must** follow this consistent pattern:
+
+```tsx
+type MyComponentProps = {
+  // define props here
+}
+
+export function MyComponent({ propName }: MyComponentProps) {
+  // implementation
+}
+```
+
+**Rules:**
+
+* Define a `Props` type or interface **above** the component.
+* Use **named exports** only (no default exports).
+* Props should be destructured **directly** in the function signature.
+
+---
+
+### Styling
+
+* Use **Tailwind CSS classes** directly in JSX.
+* Avoid any external stylesheets or inline style objects.
+* Keep className definitions concise—prefer utility extraction for large sets.
+
+---
+
+### File & Folder Structure
+
+* One component per file.
+* File name should **match** the component name in **PascalCase**:
+  `MyComponent.tsx → export function MyComponent(...)`
+
+---
+
+### Code Quality
+
+* Use **ESLint** with a common community config (e.g., `eslint-config-airbnb-typescript` or `eslint-config-standard-with-typescript`)
+* Linting is required for all commits.
+* Run lint checks on staged files using `lint-staged` (optional but encouraged).
+* No `any` types unless explicitly justified with a comment.
+
+---
+
+### Disallowed
+
+* No class components.
+* No `React.FC` or `FunctionComponent` type.
+* No default exports.
+* No testing files or test-related imports.

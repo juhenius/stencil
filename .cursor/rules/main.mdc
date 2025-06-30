@@ -1,0 +1,90 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## ✨ Global Cursor Rule: 3D Printable Stencil Generator (AI-Generated Stencils on Plate)
+
+### 🔍 Context
+
+This is a **browser-only web application** where the user provides their own **OpenAI API key** to generate **3D-printable STL files** for stencil designs.
+
+The project focuses on producing **stencils arranged on a single plate**, allowing users to create multiple AI-generated stencil designs that can be printed together and cut out individually.
+
+---
+
+### 📆 Key Behaviors & Requirements
+
+* Runs entirely in the **browser**, no backend.
+* User inputs **OpenAI API key** manually.
+* Prompts to OpenAI generate **stencil designs** (text, symbols, patterns).
+* Stencils are arranged on a **single plate**.
+
+---
+
+### 📊 UI Layout and Interaction
+
+The main application view is split into two **vertical columns**:
+
+#### ← Left Column (Controls)
+
+* **OpenAI API Key Input** field (top)
+* **Global Prompt** (textarea for overall stencil style & theme)
+* Stack of **individually editable stencils**, each containing:
+  * Text field for the **stencil-specific prompt**
+  * **Generate button** to call OpenAI for that stencil
+  * **Image preview** of the generated result
+  * Stencils can be:
+    * **Added** ("Add Stencil" button)
+    * **Removed** ("Remove Stencil" button per stencil)
+
+#### → Right Column (Preview & Export)
+
+* **Action Buttons Row** (initially includes only "Download STL")
+* **Plate Preview** showing all generated stencils arranged on the plate
+
+---
+
+### ⚖️ STL Plate Logic
+
+* Output STL must:
+
+  * Create a **single plate** with all stencils arranged in a grid.
+  * Maintain proper **spacing** between stencils.
+
+---
+
+### 🚀 OpenAI Prompting
+
+* Prompting is handled **client-side** with user-provided key.
+* Prompts should:
+
+  * Generate clear, **stencil-appropriate designs** (text, symbols, patterns).
+  * Focus on **cuttable shapes** with proper line thickness.
+  * Include **negative space** considerations for stencil functionality.
+  * Be customizable and user-guided via UI.
+
+---
+
+### 📏 General Rules
+
+* No server-side code or storage.
+* No persistence of user API keys.
+* Stencil plates must be **printable on standard FDM printers**.
+* STL generation should be fast, and ideally happen entirely in-browser.
+* Designs should be **stencil-appropriate** (connected shapes, proper bridges).
+* Tested on Chromium-based browsers; requires WebGL and WebAssembly support
+
+---
+
+### 📄 Suggested Folder Structure
+
+```
+src/
+  utils/          # STL generation, plate layout logic
+  prompts/        # OpenAI prompt templates and helpers
+  assets/         # Sample stencil patterns, references
+  models/         # Plate layout and stencil generators
+```
+
+---
